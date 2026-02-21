@@ -2,7 +2,7 @@ const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
 const themeBtn = document.getElementById("theme-btn");
 
-// --- 1. THEME LOGIC (Day 2 Refined) ---
+
 function applySavedTheme() {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme === "light") {
@@ -16,7 +16,7 @@ themeBtn.addEventListener("click", () => {
     localStorage.setItem("theme", isLight ? "light" : "dark");
 });
 
-// --- 2. TASK LOGIC (Day 5 CRUD Refined) ---
+
 function addTask() {
     const taskValue = inputBox.value.trim();
     
@@ -26,7 +26,7 @@ function addTask() {
     }
 
     const li = document.createElement("li");
-    li.textContent = taskValue; // Safer than innerHTML for plain text
+    li.textContent = taskValue; 
     
     const span = document.createElement("span");
     span.innerHTML = "\u00d7"; 
