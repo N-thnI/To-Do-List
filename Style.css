@@ -1,0 +1,175 @@
+/* 1. THEME VARIABLES */
+:root {
+    /* Dark Mode (Default) */
+    --bg-body: #121212;
+    --bg-app: #1e1e1e;
+    --text-main: #ffffff;
+    --text-dim: #a0a0a0;
+    --input-bg: #2a2a2a;
+    --accent: #00ff88; /* Neon Green */
+    --delete: #ff4444;
+}
+
+body.light-mode {
+    /* Light Mode Palette */
+    --bg-body: #f4f4f9;
+    --bg-app: #ffffff;
+    --text-main: #1e1e1e;
+    --text-dim: #666666;
+    --input-bg: #eeeeee;
+    --accent: #008f5d; /* Darker Green for contrast */
+    --delete: #cc0000;
+}
+
+/* 2. BASE STYLES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, sans-serif;
+}
+
+body {
+    background: var(--bg-body);
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* 3. APP CONTAINER */
+.container {
+    width: 100%;
+    max-width: 450px;
+    padding: 20px;
+    position: relative;
+}
+
+.todo-app {
+    background: var(--bg-app);
+    padding: 40px 30px;
+    border-radius: 24px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    transition: background 0.3s ease;
+}
+
+.todo-app h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+/* 4. THEME TOGGLE BUTTON */
+#theme-btn {
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    background: var(--input-bg);
+    border: 1px solid var(--accent);
+    color: var(--text-main);
+    padding: 8px 12px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.2s;
+}
+
+#theme-btn:hover {
+    transform: scale(1.1);
+}
+
+/* 5. INPUT ROW */
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--input-bg);
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--text-main);
+    padding: 15px 0;
+    font-size: 16px;
+}
+
+button.add-btn {
+    border: none;
+    outline: none;
+    padding: 16px 35px;
+    background: var(--accent);
+    color: #000;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 30px;
+}
+
+/* 6. TASK LIST ITEMS */
+ul li {
+    list-style: none;
+    font-size: 17px;
+    padding: 12px 45px 12px 40px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+    border-bottom: 1px solid var(--input-bg);
+}
+
+/* Custom Checkbox Circle */
+ul li::before {
+    content: '';
+    position: absolute;
+    height: 22px;
+    width: 22px;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: 0.2s;
+}
+
+/* Checked State */
+ul li.checked {
+    color: var(--text-dim);
+    text-decoration: line-through;
+}
+
+ul li.checked::before {
+    background: var(--accent);
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>');
+    background-size: 12px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* 7. DELETE BUTTON (SPAN) */
+ul li span {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    color: var(--delete);
+    line-height: 30px;
+    text-align: center;
+    border-radius: 50%;
+    transition: 0.2s;
+}
+
+ul li span:hover {
+    background: rgba(255, 68, 68, 0.1);
+    color: var(--delete);
+}
