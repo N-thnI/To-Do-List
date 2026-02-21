@@ -6,7 +6,7 @@
     --text-main: #ffffff;
     --text-dim: #a0a0a0;
     --input-bg: #2a2a2a;
-    --accent: #00ff88; /* Neon Green */
+    --accent: #00ff88; 
     --delete: #ff4444;
 }
 
@@ -17,7 +17,7 @@ body.light-mode {
     --text-main: #1e1e1e;
     --text-dim: #666666;
     --input-bg: #eeeeee;
-    --accent: #008f5d; /* Darker Green for contrast */
+    --accent: #008f5d; 
     --delete: #cc0000;
 }
 
